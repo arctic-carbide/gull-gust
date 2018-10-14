@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 50778945980153716}
   - component: {fileID: 61871500398575518}
   m_Layer: 0
-  m_Name: gulliver
+  m_Name: gulliver_prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
