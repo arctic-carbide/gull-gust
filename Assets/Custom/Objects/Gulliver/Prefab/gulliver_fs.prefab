@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1478360047995204}
+  m_IsPrefabParent: 1
+--- !u!1 &1478360047995204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4963075535628492}
+  - component: {fileID: 212675663397484628}
+  - component: {fileID: 50515211410237340}
+  - component: {fileID: 114160616703404094}
+  - component: {fileID: 114607428144211170}
+  - component: {fileID: 61664776567006588}
+  m_Layer: 0
+  m_Name: gulliver_fs
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4963075535628492
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478360047995204}
+  m_LocalRotation: {x: -0, y: -0.99998736, z: -0, w: -0.005044212}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -180.57799, z: 0}
+--- !u!50 &50515211410237340
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478360047995204}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!61 &61664776567006588
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478360047995204}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.03, y: 0.63}
+    newSize: {x: 2.03, y: 0.63}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.03, y: 0.63}
+  m_EdgeRadius: 0
+--- !u!114 &114160616703404094
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478360047995204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5c3ebb24c97464da319951cafe5a47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boundGraphSerialization: '{"version":2.85,"type":"FlowCanvas.FlowScript","translation":{"x":-3419.0,"y":-3864.0},"zoomFactor":0.7500091,"nodes":[{"_position":{"x":5134.0,"y":5559.0},"$type":"FlowCanvas.Nodes.FixedUpdateEvent","$id":"2"},{"_method":{"_baseInfo":"UnityEngine.Rigidbody2D|set_velocity|System.Void","_paramsInfo":"UnityEngine.Vector2"},"_callable":true,"_inputPortValues":{},"_position":{"x":5435.0,"y":5640.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"3"},{"keyCode":{"_value":"W"},"_position":{"x":5089.0,"y":5207.0},"$type":"FlowCanvas.Nodes.KeyboardEvents","$id":"6"},{"_method":{"_baseInfo":"UnityEngine.Rigidbody2D|AddForce|System.Void","_paramsInfo":"UnityEngine.Vector2|UnityEngine.ForceMode2D"},"_callable":true,"_inputPortValues":{},"_position":{"x":5434.0,"y":5173.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"8"},{"keyCode":{"_value":"S"},"_color":{"r":1.0,"g":0.3607843,"b":0.3607843,"a":1.0},"_position":{"x":5101.0,"y":5401.0},"$type":"FlowCanvas.Nodes.KeyboardEvents","$id":"11"},{"_method":{"_baseInfo":"UnityEngine.Rigidbody2D|AddForce|System.Void","_paramsInfo":"UnityEngine.Vector2|UnityEngine.ForceMode2D"},"_callable":true,"_inputPortValues":{},"_position":{"x":5446.0,"y":5315.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"13"},{"value":{"_name":"upward","_targetVariableID":"fb103906-2dfe-480c-a5be-04830d527591"},"_position":{"x":5165.0,"y":5141.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"16"},{"value":{"_name":"downward","_targetVariableID":"ea3a6536-f1e9-4e8b-adcc-98850aa1b65a"},"_position":{"x":5177.0,"y":5343.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"18"},{"value":{"_name":"forward","_targetVariableID":"1d65b023-b360-4e58-b3a6-40c9ad9edfc4"},"_position":{"x":5195.0,"y":5502.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"20"},{"_method":{"_baseInfo":"UnityEngine.Rigidbody2D|AddForce|System.Void","_paramsInfo":"UnityEngine.Vector2|UnityEngine.ForceMode2D"},"_callable":true,"_inputPortValues":{},"_position":{"x":5465.0,"y":5475.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"22"},{"_inputPortValues":{},"_position":{"x":5199.0,"y":5689.0},"$type":"FlowCanvas.Nodes.SwitchBool"}],"connections":[{"_sourcePortName":"Out","_targetPortName":"
+    ","_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Pressed","_targetPortName":"
+    ","_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"8"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Pressed","_targetPortName":"
+    ","_sourceNode":{"$ref":"11"},"_targetNode":{"$ref":"13"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Value","_targetPortName":"force","_sourceNode":{"$ref":"16"},"_targetNode":{"$ref":"8"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"force","_sourceNode":{"$ref":"18"},"_targetNode":{"$ref":"13"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"force","_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"22"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"value","_sourceNode":{"$ref":"20"},"_targetNode":{"$ref":"3"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}}}'
+  boundGraphObjectReferences: []
+  enableAction: 0
+  disableAction: 0
+  _graph: {fileID: 0}
+  _blackboard: {fileID: 114607428144211170}
+--- !u!114 &114607428144211170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478360047995204}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b98a6db0b653f764eac834f85857a9dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _serializedBlackboard: '{"_variables":{"upward":{"_value":{"y":50.0},"_name":"upward","_id":"fb103906-2dfe-480c-a5be-04830d527591","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"downward":{"_value":{"y":-50.0},"_name":"downward","_id":"ea3a6536-f1e9-4e8b-adcc-98850aa1b65a","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"forward":{"_value":{"x":1.0},"_name":"forward","_id":"1d65b023-b360-4e58-b3a6-40c9ad9edfc4","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}}'
+  _objectReferences: []
+--- !u!212 &212675663397484628
+SpriteRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1478360047995204}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: dc1499481077a774e9f50c63bd8bcc40, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 2.03, y: 0.63}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
