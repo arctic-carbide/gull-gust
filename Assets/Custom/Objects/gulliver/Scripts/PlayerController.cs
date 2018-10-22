@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour {
 	private Vector2 upward_force = new Vector2(0, vertical_force_factor);
 	private Vector2 downward_force = new Vector2(0, -vertical_force_factor);
 	private Vector2 forward_force = new Vector2(forward_force_factor, 0);
-	private int speed = 0; // TODO: SET SPEED EQUAL TO DECCELERATION
-	bool state = false;
+	// private int speed = 0; // TODO: SET SPEED EQUAL TO DECCELERATION
+	// bool state = false;
 
 	enum State { MOVING_UP, MOVING_DOWN, IDLE };
-	State activity = State.IDLE;
+	// State activity = State.IDLE;
 
 
 	//private void moveDown() { physical_body.AddForce(downward_force); }
