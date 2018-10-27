@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625114ef92abc6f4d98f906588e93662, type: 3}
+  m_Name: force-value
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.85,"type":"FlowCanvas.Macros.Macro","translation":{"x":-4483.0,"y":-4587.0},"nodes":[{"_position":{"x":4787.0,"y":4887.0},"$type":"FlowCanvas.Macros.MacroInputNode"},{"value":{"_name":"force","_targetVariableID":"fb103906-2dfe-480c-a5be-04830d527591"},"_position":{"x":5063.0,"y":5037.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"3"},{"_method":{"_baseInfo":"UnityEngine.Vector2|op_UnaryNegation|UnityEngine.Vector2","_paramsInfo":"UnityEngine.Vector2"},"_inputPortValues":{},"_position":{"x":5322.0,"y":5096.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"5"},{"_inputPortValues":{},"_position":{"x":5622.0,"y":4994.0},"$type":"FlowCanvas.Macros.MacroOutputNode","$id":"8"}],"connections":[{"_sourcePortName":"Value","_targetPortName":"a","_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"5"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"f93e9f33-fd60-4a9e-b3a1-0e697e47a759","_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"8"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"d1c26656-d549-4b3f-bbb0-9716114e7232","_sourceNode":{"$ref":"5"},"_targetNode":{"$ref":"8"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{"myVector2":{"_name":"myVector2","$type":"NodeCanvas.Framework.Variable`1[[UnityEngine.Vector2,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}}},"derivedData":{"inputDefinitions":[{"_ID":"29bc69ec-663e-449c-bea7-60fe1edc7d53","_name":"Force","_type":"UnityEngine.Vector2"}],"outputDefinitions":[{"_ID":"f93e9f33-fd60-4a9e-b3a1-0e697e47a759","_name":"Positive","_type":"UnityEngine.Vector2"},{"_ID":"d1c26656-d549-4b3f-bbb0-9716114e7232","_name":"Negative","_type":"UnityEngine.Vector2"}],"$type":"FlowCanvas.Macros.Macro+DerivedSerializationData"}}'
+  _objectReferences: []
+  _deserializationFailed: 0
+  inputDefinitions:
+  - _ID: 29bc69ec-663e-449c-bea7-60fe1edc7d53
+    _name: Force
+    _type: UnityEngine.Vector2
+  outputDefinitions:
+  - _ID: f93e9f33-fd60-4a9e-b3a1-0e697e47a759
+    _name: Positive
+    _type: UnityEngine.Vector2
+  - _ID: d1c26656-d549-4b3f-bbb0-9716114e7232
+    _name: Negative
+    _type: UnityEngine.Vector2

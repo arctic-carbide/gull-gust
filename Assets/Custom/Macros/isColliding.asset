@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625114ef92abc6f4d98f906588e93662, type: 3}
+  m_Name: isColliding
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.85,"type":"FlowCanvas.Macros.Macro","translation":{"x":-5077.0,"y":-5026.0},"nodes":[{"_position":{"x":5189.0,"y":5268.0},"$type":"FlowCanvas.Macros.MacroInputNode","$id":"2"},{"_simplexNode":{},"_inputPortValues":{},"_position":{"x":5431.0,"y":5357.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.GetComponent`1[[UnityEngine.Collider2D,
+    UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"3"},{"_method":{"_baseInfo":"UnityEngine.Collider2D|IsTouching|System.Boolean","_paramsInfo":"UnityEngine.Collider2D"},"_inputPortValues":{},"_position":{"x":5746.0,"y":5339.0},"$type":"FlowCanvas.Nodes.ReflectedMethodNodeWrapper","$id":"6"},{"_inputPortValues":{},"_position":{"x":5958.0,"y":5280.0},"$type":"FlowCanvas.Nodes.SwitchBool","$id":"9"},{"_inputPortValues":{},"_position":{"x":6303.0,"y":5300.0},"$type":"FlowCanvas.Macros.MacroOutputNode","$id":"11"},{"_simplexNode":{},"_inputPortValues":{},"_position":{"x":5432.0,"y":5423.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.GetComponent`1[[UnityEngine.Collider2D,
+    UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]],
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"13"}],"connections":[{"_sourcePortName":"3637771d-08dd-4a0b-9b1f-7b2f63d9f723","_targetPortName":"gameObject","_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"3"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"0eb36459-d66c-4acd-bfdb-bb02464f37ad","_targetPortName":"gameObject","_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"13"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.GameObject,
+    UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"67e621ae-3fb0-46e9-9393-2fadd72ead3a","_targetPortName":"In","_sourceNode":{"$ref":"2"},"_targetNode":{"$ref":"9"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Value","_targetPortName":"Collider2D","_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"6"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Collider2D,
+    UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"8ad06ab7-d99f-4e4d-977e-9fdc71351fc8","_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"11"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Collider2D,
+    UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"Condition","_sourceNode":{"$ref":"6"},"_targetNode":{"$ref":"9"},"$type":"FlowCanvas.BinderConnection`1[[System.Boolean,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"True","_targetPortName":"b2b5dec8-73ee-4392-9029-627022a2cde5","_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"11"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"False","_targetPortName":"75f72939-76d9-4fdc-9d08-81858d6d1260","_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"11"},"$type":"FlowCanvas.BinderConnection"},{"_sourcePortName":"Value","_targetPortName":"collider","_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"6"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Collider2D,
+    UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},{"_sourcePortName":"Value","_targetPortName":"e056c840-cbdf-4c5b-90ec-f0af72f43d2d","_sourceNode":{"$ref":"13"},"_targetNode":{"$ref":"11"},"$type":"FlowCanvas.BinderConnection`1[[UnityEngine.Collider2D,
+    UnityEngine.Physics2DModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}},"derivedData":{"inputDefinitions":[{"_ID":"67e621ae-3fb0-46e9-9393-2fadd72ead3a","_name":"In","_type":"FlowCanvas.Flow"},{"_ID":"3637771d-08dd-4a0b-9b1f-7b2f63d9f723","_name":"Offender","_type":"UnityEngine.GameObject"},{"_ID":"0eb36459-d66c-4acd-bfdb-bb02464f37ad","_name":"Defender","_type":"UnityEngine.GameObject"}],"outputDefinitions":[{"_ID":"b2b5dec8-73ee-4392-9029-627022a2cde5","_name":"True","_type":"FlowCanvas.Flow"},{"_ID":"75f72939-76d9-4fdc-9d08-81858d6d1260","_name":"False","_type":"FlowCanvas.Flow"},{"_ID":"8ad06ab7-d99f-4e4d-977e-9fdc71351fc8","_name":"A","_type":"UnityEngine.Collider2D"},{"_ID":"e056c840-cbdf-4c5b-90ec-f0af72f43d2d","_name":"B","_type":"UnityEngine.Collider2D"}],"$type":"FlowCanvas.Macros.Macro+DerivedSerializationData"}}'
+  _objectReferences: []
+  _deserializationFailed: 0
+  inputDefinitions:
+  - _ID: 67e621ae-3fb0-46e9-9393-2fadd72ead3a
+    _name: In
+    _type: FlowCanvas.Flow
+  - _ID: 3637771d-08dd-4a0b-9b1f-7b2f63d9f723
+    _name: Offender
+    _type: UnityEngine.GameObject
+  - _ID: 0eb36459-d66c-4acd-bfdb-bb02464f37ad
+    _name: Defender
+    _type: UnityEngine.GameObject
+  outputDefinitions:
+  - _ID: b2b5dec8-73ee-4392-9029-627022a2cde5
+    _name: True
+    _type: FlowCanvas.Flow
+  - _ID: 75f72939-76d9-4fdc-9d08-81858d6d1260
+    _name: False
+    _type: FlowCanvas.Flow
+  - _ID: 8ad06ab7-d99f-4e4d-977e-9fdc71351fc8
+    _name: A
+    _type: UnityEngine.Collider2D
+  - _ID: e056c840-cbdf-4c5b-90ec-f0af72f43d2d
+    _name: B
+    _type: UnityEngine.Collider2D

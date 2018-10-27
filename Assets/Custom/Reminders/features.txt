@@ -1,0 +1,6 @@
+1. the shark charges a laser that initially starts wide and slowly focuses somewhere near the player.
+	when the laser focuses enough, it fires
+	there is a shaded area that indicates the danger zone of the laser
+	if the player is shot, they change into a roasted chicken and the game ends
+	the laser fires periodically
+	the laser will never fire at the ring or near the ring

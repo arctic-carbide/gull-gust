@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 625114ef92abc6f4d98f906588e93662, type: 3}
+  m_Name: tau
+  m_EditorClassIdentifier: 
+  _serializedGraph: '{"version":2.85,"type":"FlowCanvas.Macros.Macro","translation":{"x":-4751.0,"y":-4989.0},"nodes":[{"_position":{"x":5107.0,"y":5228.0},"$type":"FlowCanvas.Macros.MacroInputNode"},{"fieldName":"PI","targetType":"UnityEngine.Mathf","_position":{"x":5331.0,"y":5445.0},"$type":"FlowCanvas.Nodes.ReflectedFieldNodeWrapper","$id":"3"},{"_simplexNode":{},"_inputPortValues":{},"_position":{"x":5567.0,"y":5364.0},"$type":"FlowCanvas.Nodes.SimplexNodeWrapper`1[[FlowCanvas.Nodes.FloatMultiply,
+    Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]","$id":"4"},{"_inputPortValues":{},"_position":{"x":5763.0,"y":5321.0},"$type":"FlowCanvas.Macros.MacroOutputNode","$id":"7"},{"value":{"_value":2.0},"_position":{"x":5329.0,"y":5372.0},"$type":"FlowCanvas.Nodes.GetVariable`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]","$id":"9"}],"connections":[{"_sourcePortName":"Value","_targetPortName":"b","_sourceNode":{"$ref":"3"},"_targetNode":{"$ref":"4"},"$type":"FlowCanvas.BinderConnection`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"Value","_targetPortName":"70d9ada2-40f7-4f3a-8a14-82d3336e5332","_sourceNode":{"$ref":"4"},"_targetNode":{"$ref":"7"},"$type":"FlowCanvas.BinderConnection`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"},{"_sourcePortName":"Value","_targetPortName":"a","_sourceNode":{"$ref":"9"},"_targetNode":{"$ref":"4"},"$type":"FlowCanvas.BinderConnection`1[[System.Single,
+    mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]"}],"localBlackboard":{"_name":"Local
+    Blackboard","_variables":{}},"derivedData":{"inputDefinitions":[],"outputDefinitions":[{"_ID":"70d9ada2-40f7-4f3a-8a14-82d3336e5332","_name":"Value","_type":"System.Single"}],"$type":"FlowCanvas.Macros.Macro+DerivedSerializationData"}}'
+  _objectReferences: []
+  _deserializationFailed: 0
+  inputDefinitions: []
+  outputDefinitions:
+  - _ID: 70d9ada2-40f7-4f3a-8a14-82d3336e5332
+    _name: Value
+    _type: System.Single
