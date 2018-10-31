@@ -21,7 +21,7 @@ public class Restart : MonoBehaviour {
 	void Update () {
 		if (bg.GetComponent<Rigidbody2D>().velocity.x >= minvelocity)
 		{
-			SceneManager.LoadScene("main-menu");
+			SceneManager.LoadScene(s.name);
 		}
 	}
 }
