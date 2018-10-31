@@ -7,14 +7,17 @@ using UnityEngine.Events;
 
 public class SceneControl : MonoBehaviour {
 
+
+
+
 	public void play()
 	{
-		SceneManager.LoadScene("game-area");
+		SceneManager.LoadScene("Gameplay");
 	}
 
 	public void end()
 	{
-		SceneManager.LoadScene("main-menu");
+		SceneManager.LoadScene("MainMenu");
 	}
 
 	public void restart()
