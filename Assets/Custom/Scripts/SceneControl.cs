@@ -7,21 +7,26 @@ using UnityEngine.Events;
 
 public class SceneControl : MonoBehaviour {
 
+	private static GameObject main_camera;
+	private static Camera mc;
 
+	
 
-
-	public void play()
+	public void Play()
 	{
 		SceneManager.LoadScene("Gameplay");
 	}
 
-	public void end()
+	public void End()
 	{
+		main_camera = GameObject.Find("Main Camera");
 		SceneManager.LoadScene("MainMenu");
+
+		Destroy(main_camera);
 	}
 
-	public void restart()
-	{
-		SceneManager.LoadScene(SceneManager.GetActiveScene().ToString());
+	public void Restart()
+	{	
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }

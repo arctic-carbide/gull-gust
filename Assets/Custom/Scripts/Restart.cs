@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Restart : MonoBehaviour {
 
@@ -9,10 +10,10 @@ public class Restart : MonoBehaviour {
 	Scene s;
 	const double minvelocity = -1.0;
 	string bg_name = "background";
-	
 
 	// Use this for initialization
 	void Start () {
+
 		bg = GameObject.Find(bg_name);
 		s = SceneManager.GetSceneByBuildIndex(1);
 	}
