@@ -417,7 +417,7 @@ Prefab:
     - target: {fileID: 114507850185623604, guid: 95dbeaed7d428aa43ae9b42d4cd8910e,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 95dbeaed7d428aa43ae9b42d4cd8910e, type: 2}
@@ -473,12 +473,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
+    m_Left: 30
+    m_Right: 30
+    m_Top: 30
+    m_Bottom: 30
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 10
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
@@ -508,7 +508,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 395899318}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1011,7 +1011,7 @@ Prefab:
     - target: {fileID: 114392748061848466, guid: b46f15271f9d2f447aacceeaa6d33d7b,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b46f15271f9d2f447aacceeaa6d33d7b, type: 2}
@@ -1164,12 +1164,12 @@ Prefab:
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224010265321330740, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
@@ -1186,7 +1186,8 @@ Prefab:
       propertyPath: m_fontSize
       value: 57.1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114467125168170708, guid: 851268098d1807f44b45552c57514e3c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 851268098d1807f44b45552c57514e3c, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1196100368 stripped
@@ -1315,7 +1316,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1420500543}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1785,7 +1786,7 @@ MonoBehaviour:
   targetMenuTag: Menu
   startMenu: {fileID: 633881429}
   mainMenu: {fileID: 866008340}
-  showPanels: 0
+  showPanels: 1
 --- !u!1001 &1811933777
 Prefab:
   m_ObjectHideFlags: 0
@@ -1886,12 +1887,12 @@ Prefab:
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224010265321330740, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
@@ -1908,7 +1909,8 @@ Prefab:
       propertyPath: m_fontSize
       value: 57.1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114467125168170708, guid: 851268098d1807f44b45552c57514e3c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 851268098d1807f44b45552c57514e3c, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1811933778 stripped
@@ -2083,12 +2085,12 @@ Prefab:
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224010265321330740, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
@@ -2105,7 +2107,8 @@ Prefab:
       propertyPath: m_fontSize
       value: 57.1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114467125168170708, guid: 851268098d1807f44b45552c57514e3c, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 851268098d1807f44b45552c57514e3c, type: 2}
   m_IsPrefabParent: 0
 --- !u!224 &1965129518 stripped
@@ -2217,12 +2220,12 @@ Prefab:
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_havePropertiesChanged
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
       propertyPath: m_isInputParsingRequired
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114040861677629050, guid: 851268098d1807f44b45552c57514e3c,
         type: 2}
