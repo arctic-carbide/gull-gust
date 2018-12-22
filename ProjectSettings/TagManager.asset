@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Camera
   - Menu
+  - Panel
   layers:
   - Default
   - TransparentFX
