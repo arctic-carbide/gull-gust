@@ -2,6 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * AUTHOR: MITCHELL MYERS
+ * DATE: 12/21/2018
+ * 
+ */
+
 namespace GullGust
 {
 	public class Shark : MonoBehaviour

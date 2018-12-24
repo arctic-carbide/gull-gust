@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ * AUTHOR: MITCHELL MYERS
+ * DATE: 12/10/2018
+ * 
+ * 
+ */
+
 namespace MKM
 {
 

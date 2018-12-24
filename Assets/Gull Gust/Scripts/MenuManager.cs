@@ -31,17 +31,24 @@ namespace GullGust
 
 		[Header("Debug")]
 		public bool showPanels = true;
+		private string panelTag = "Panel";
 		
 
 		// Use this for initialization
 		void Start()
 		{
 			GameObject[] menues = GameObject.FindGameObjectsWithTag(targetMenuTag);
-			Image[] panels = GetComponentsInChildren<Image>();
+			GameObject[] panels = GameObject.FindGameObjectsWithTag(panelTag);
+			//Image[] images = GetComponentsInChildren<Image>();
+			//DisableAll(menues);
+			//DisableAll(panels);
+			//Enable(startMenu);
 
-			DisableAll(menues);
-			DisableAll(panels);
-			Enable(startMenu);
+			menues.DeactivateAll();
+			panels.SetAllComponentsWithTagEnabled<Image>(panelTag, false);
+			//images.DisableAllWithTag("Panel");
+
+			startMenu.Activate();
 			currentMenu = startMenu;
 		}
 
@@ -53,15 +60,22 @@ namespace GullGust
 
 		private void OnValidate()
 		{
-			Image[] panels = GetComponentsInChildren<Image>();
+			//Image[] images = GetComponentsInChildren<Image>();
+			GameObject[] panels = GameObject.FindGameObjectsWithTag(panelTag);
 
 			if (showPanels)
 			{
-				EnableAll(panels);
+				//EnableAll(panels);
+				//images.SetEnabledAllWithTag("Panel", true);
+				//images.EnableAllWithTag("Panel");
+				panels.SetAllComponentsWithTagEnabled<Image>(panelTag, true);
 			}
 			else
 			{
-				DisableAll(panels);
+				//DisableAll(panels);
+				//images.SetEnabledAllWithTag("Panel", false);
+				//images.DisableAllWithTag("Panel");
+				panels.SetAllComponentsWithTagEnabled<Image>(panelTag, false);
 			}
 		}
 
@@ -90,13 +104,16 @@ namespace GullGust
 		public void Backtrack()
 		{
 			GameObject previousMenu;
-			Disable(currentMenu);
+			currentMenu.Deactivate();
+			//Disable(currentMenu);
 
 			Debug.Assert(history.Count > 1);
 			history.Pop();
 			previousMenu = history.Peek();
 
-			Enable(previousMenu);
+			//Enable(previousMenu);
+			//previousMenu.Activate();
+			previousMenu.Activate();
 			currentMenu = previousMenu;
 
 			DetermineReturnButtonDisplay();
@@ -106,81 +123,27 @@ namespace GullGust
 		{
 			if (!OnMainMenu() && !OnStartMenu())
 			{
-				Enable(GUIReturnButton);
+				//Enable(GUIReturnButton);
+				GUIReturnButton.Activate();
 			}
 			else
 			{
-				Disable(GUIReturnButton);
+				//Disable(GUIReturnButton);
+				GUIReturnButton.Deactivate();
 			}
 		}
 
 		public void NavigateTo(GameObject nextMenu)
 		{
-			Disable(currentMenu);
+			//Disable(currentMenu);
+			currentMenu.Deactivate();
 			history.Push(nextMenu);
 
-			Enable(nextMenu);
+			//Enable(nextMenu);
+			nextMenu.Activate();
 			currentMenu = nextMenu;
 
 			DetermineReturnButtonDisplay();
-		}
-
-		private void Enable(GameObject x)
-		{
-			x.SetActive(true);
-		}
-
-		private void Disable(GameObject x)
-		{
-			x.SetActive(false);
-		}
-
-		private void DisableAll(GameObject[] x)
-		{
-			foreach (GameObject g in x)
-			{
-				Disable(g);
-			}
-		}
-
-		private void DisableAll(Behaviour[] x)
-		{
-			foreach (Behaviour b in x)
-			{
-				Disable(b);
-			}
-		}
-
-		private void Disable(Behaviour b)
-		{
-			b.enabled = false;
-		}
-
-		private void DisableAll(Image[] x)
-		{
-			foreach (Image i in x)
-			{
-				if (i.gameObject.CompareTag("Panel"))
-				{
-					Disable(i);
-				}
-			}
-		}
-
-		private void Enable(Behaviour b)
-		{
-			b.enabled = true;
-		}
-
-		private void EnableAll(Image[] x)
-		{
-			foreach (Image i in x)
-			{
-				if (i.gameObject.CompareTag("Panel"))
-				{
-					Enable(i);
-				}
-			}
 		}
 	}
 
