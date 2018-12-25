@@ -30,7 +30,7 @@ namespace GullGust
 		public GameObject startMenu;
 		public GameObject mainMenu;
 
-		private static GameObject[] menues;
+		private GameObject[] menues;
 		
 
 		// Use this for initialization

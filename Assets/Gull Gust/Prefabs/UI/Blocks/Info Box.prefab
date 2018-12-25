@@ -80,7 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 1
+  - eventID: 0
     callback:
       m_PersistentCalls:
         m_Calls:
