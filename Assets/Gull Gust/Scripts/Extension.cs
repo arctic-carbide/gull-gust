@@ -53,7 +53,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.HasTag(tag))
+				if (gameObject.TaggedWith(tag))
 				{
 					//gameObject.SetActive(true);
 					gameObject.Activate();
@@ -65,7 +65,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.HasTag(tag))
+				if (gameObject.NotTaggedWith(tag))
 				{
 					//gameObject.SetActive(true);
 					gameObject.Activate();
@@ -77,9 +77,9 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.LacksTag(tag))
+				if (gameObject.TaggedWith(tag))
 				{
-					gameObject.Activate();
+					gameObject.Deactivate();
 				}
 			}
 		}
@@ -88,7 +88,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.LacksTag(tag))
+				if (gameObject.NotTaggedWith(tag))
 				{
 					gameObject.Deactivate();
 				}
@@ -99,7 +99,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.HasTag(tag))
+				if (gameObject.TaggedWith(tag))
 				{
 					gameObject.SetActive(flag);
 				}
@@ -110,7 +110,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.LacksTag(tag))
+				if (gameObject.NotTaggedWith(tag))
 				{
 					gameObject.SetActive(flag);
 				}
@@ -165,7 +165,7 @@ namespace GullGust
 		{
 			foreach (Behaviour behaviour in behaviours)
 			{
-				if (behaviour.HasTag(tag))
+				if (behaviour.TaggedWith(tag))
 				{
 					//behaviour.enabled = true;
 					behaviour.Enable();
@@ -177,7 +177,7 @@ namespace GullGust
 		{
 			foreach (Behaviour behaviour in behaviours)
 			{
-				if (behaviour.LacksTag(tag))
+				if (behaviour.NotTaggedWith(tag))
 				{
 					//behaviour.enabled = true;
 					behaviour.Enable();
@@ -189,7 +189,7 @@ namespace GullGust
 		{
 			foreach (Behaviour behaviour in behaviours)
 			{
-				if (behaviour.HasTag(tag))
+				if (behaviour.TaggedWith(tag))
 				{
 					//behaviour.enabled = false;
 					behaviour.Disable();
@@ -201,7 +201,7 @@ namespace GullGust
 		{
 			foreach (Behaviour behaviour in behaviours)
 			{
-				if (behaviour.LacksTag(tag))
+				if (behaviour.NotTaggedWith(tag))
 				{
 					//behaviour.enabled = false;
 					behaviour.Disable();
@@ -213,7 +213,7 @@ namespace GullGust
 		{
 			foreach (Behaviour behaviour in behaviours)
 			{
-				if (behaviour.HasTag(tag))
+				if (behaviour.TaggedWith(tag))
 				{
 					//behaviour.enabled = flag;
 					behaviour.SetEnabled(flag);
@@ -225,7 +225,7 @@ namespace GullGust
 		{
 			foreach (Behaviour behaviour in behaviours)
 			{
-				if (behaviour.LacksTag(tag))
+				if (behaviour.NotTaggedWith(tag))
 				{
 					//behaviour.enabled = flag;
 					behaviour.SetEnabled(flag);
@@ -244,59 +244,68 @@ namespace GullGust
 			return (x == null);
 		}
 
-		public static T[] GetComponentsInChildrenWithTag<T>(this GameObject gameObject, string tag) where T : Component
+		public static T[] GetComponentsInChildrenWithTag<T>(this GameObject gameObject, string tag, bool includeInactive = false) where T : Component
 		{
-			T[] ts = gameObject.GetComponentsInChildren<T>();
+			T[] ts = gameObject.GetComponentsInChildren<T>(includeInactive);
 			List<T> children = new List<T>(ts);
 
 			foreach (T t in ts)
 			{
-				if (t.LacksTag(tag))
+				if (t.NotTaggedWith(tag)) // if the object does not have the specified
 				{
-					children.Remove(t);
+					children.Remove(t); // remove it, because we want only objects with that tag returned
 				}
 			}
-
-			if (children.Count > 0)
-			{
-				return children.ToArray();
-			}
-			else
-			{
-				return null; // none of the children had the specified tag, so the list is empty
-			}
+			
+			// we want to return the array of objects so that functionality between built-in unity methods persists
+			// we also want to return null if the list contains no objects, as most built-in unity methods do
+			return children.Count > 0 ? children.ToArray() : null;
 		}
 
-		public static T[] GetComponentsInChildrenWithoutTag<T>(this GameObject gameObject, string tag) where T : Component
+		public static T[] GetComponentsInChildrenWithoutTag<T>(this GameObject gameObject, string tag, bool includeInactive = false) where T : Component
 		{
-			T[] ts = gameObject.GetComponentsInChildren<T>();
+			T[] ts = gameObject.GetComponentsInChildren<T>(includeInactive);
 			List<T> children = new List<T>(ts);
 
 			foreach (T t in ts)
 			{
-				if (t.HasTag(tag))
+				if (t.TaggedWith(tag)) // check if an object has the tag
 				{
-					children.Remove(t);
+					children.Remove(t); // remove the tagged object, because we only want the objects that do not have that tag
 				}
 			}
 
-			if (children.Count > 0)
-			{
-				return children.ToArray();
-			}
-			else
-			{
-				return null; // none of the children had the specified tag, so the list is empty
-			}
+			return children.Count > 0 ? children.ToArray() : null;
 		}
+		
+		//public static T[] GetComponentsInChildrenByTag<T>
+		//	(this GameObject gameObject, string tag, bool includeInactive = false, bool includeTag = true) where T : Component
+		//{
+		//	T[] children = new T[0];
 
-		public static T GetComponentInChildrenWithTag<T>(this GameObject gameObject, string tag) where T : Component
+		//	switch (includeTag)
+		//	{
+		//		case true:
+
+		//			children = gameObject.GetComponentsInChildrenWithTag<T>(tag, includeInactive);
+		//			break;
+
+		//		case false:
+
+		//			children = gameObject.GetComponentsInChildrenWithoutTag<T>(tag, includeInactive);
+		//			break;
+		//	}
+
+		//	return children;
+		//}
+
+		public static T GetComponentInChildrenWithTag<T>(this GameObject gameObject, string tag, bool includeInactive = false) where T : Component
 		{
-			T[] ts = gameObject.GetComponentsInChildren<T>();
+			T[] ts = gameObject.GetComponentsInChildren<T>(includeInactive);
 
 			foreach (T t in ts)
 			{
-				if (t.HasTag(tag))
+				if (t.TaggedWith(tag))
 				{
 					return t; // return the first instance that matches
 				}
@@ -305,22 +314,37 @@ namespace GullGust
 			return null; // no match found
 		}
 
-		public static bool HasTag(this GameObject obj, string tag)
+		public static T GetComponentInChildrenWithoutTag<T>(this GameObject gameObject, string tag, bool includeInactive = false) where T : Component
+		{
+			T[] ts = gameObject.GetComponentsInChildren<T>(includeInactive);
+
+			foreach (T t in ts)
+			{
+				if (t.NotTaggedWith(tag))
+				{
+					return t;
+				}
+			}
+
+			return null;
+		}
+
+		public static bool TaggedWith(this GameObject obj, string tag)
 		{
 			return obj.CompareTag(tag);
 		}
 
-		public static bool HasTag(this Component component, string tag)
-		{
-			return component.CompareTag(tag);
-		}
-
-		public static bool LacksTag(this GameObject obj, string tag)
+		public static bool NotTaggedWith(this GameObject obj, string tag)
 		{
 			return !obj.CompareTag(tag);
 		}
 
-		public static bool LacksTag(this Component component, string tag)
+		public static bool TaggedWith(this Component component, string tag)
+		{
+			return component.CompareTag(tag);
+		}
+
+		public static bool NotTaggedWith(this Component component, string tag)
 		{
 			return !component.CompareTag(tag);
 		}
@@ -328,7 +352,14 @@ namespace GullGust
 		public static void DisableComponent<T>(this GameObject gameObject) where T : Behaviour
 		{
 			T component = gameObject.GetComponent<T>();
-			component.Disable();
+			if (component.Exists())
+			{
+				component.Disable();
+			}
+			else
+			{
+				throw new System.Exception("Cannot disable component: component does not exist for " + gameObject.ToString());
+			}
 		}
 
 		public static void EnableComponent<T>(this GameObject gameObject) where T : Behaviour
@@ -353,7 +384,7 @@ namespace GullGust
 			}
 			else
 			{
-				throw new System.Exception("Cannot disable component: component does not exist for " + gameObject.ToString());
+				throw new System.Exception("Cannot modify component: component does not exist for " + gameObject.ToString());
 			}
 		}
 
@@ -385,7 +416,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.HasTag(tag))
+				if (gameObject.TaggedWith(tag))
 				{
 					gameObject.SetComponentEnabled<T>(flag);
 				}
@@ -396,7 +427,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.LacksTag(tag))
+				if (gameObject.NotTaggedWith(tag))
 				{
 					gameObject.SetComponentEnabled<T>(flag);
 				}
@@ -408,7 +439,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.HasTag(tag))
+				if (gameObject.TaggedWith(tag))
 				{
 					gameObject.DisableComponent<T>();
 				}
@@ -419,9 +450,35 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.HasTag(tag))
+				if (gameObject.TaggedWith(tag))
 				{
 					gameObject.EnableComponent<T>();
+				}
+			}
+		}
+
+		public enum SetMode { Inclusive, Exclusive }
+		public static void DisableAllComponentsByTag<T>(this GameObject[] gameObjects, string tag, SetMode mode = SetMode.Inclusive) where T : Behaviour
+		{
+			foreach (GameObject gameObject in gameObjects)
+			{
+				switch (mode)
+				{
+					case SetMode.Inclusive:
+
+						gameObjects.DisableAllComponentsWithTag<T>(tag);
+						break;
+
+					case SetMode.Exclusive:
+
+						gameObjects.DisableAllComponentsWithoutTag<T>(tag);
+						break;
+
+					default:
+						string message = "Trying to apply new SetMode to disable components by tag; no changes were made.";
+
+						Debug.Log(message);
+						break;
 				}
 			}
 		}
@@ -430,7 +487,7 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.LacksTag(tag))
+				if (gameObject.NotTaggedWith(tag))
 				{
 					gameObject.DisableComponent<T>();
 				}
@@ -441,11 +498,40 @@ namespace GullGust
 		{
 			foreach (GameObject gameObject in gameObjects)
 			{
-				if (gameObject.LacksTag(tag))
+				if (gameObject.NotTaggedWith(tag))
 				{
 					gameObject.EnableComponent<T>();
 				}
 			}
+		}
+
+		public static GameObject[] GetGameObjects(this Component[] components)
+		{
+			List<GameObject> gameObjects = new List<GameObject>();
+
+			foreach (Component component in components)
+			{
+				gameObjects.Add(component.gameObject);
+			}
+
+			return gameObjects.ToArray();
+		}
+
+		public static GameObject[] GetGameObjectsFromComponentsInChildren<T>(this GameObject gameObject, bool includeInactive = false) where T : Component
+		{
+			T[] components = gameObject.GetComponentsInChildren<T>(includeInactive);
+			GameObject[] gameObjects = components.GetGameObjects();
+
+			return gameObjects;
+		}
+
+		public static GameObject[] GetGameObjectsWithTagFromComponentsInChildren<T>(this GameObject gameObject, string tag, bool includeInactive = false)
+			where T : Component
+		{
+			T[] components = gameObject.GetComponentsInChildrenWithTag<T>(tag, includeInactive);
+			GameObject[] gameObjects = components.GetGameObjects();
+
+			return gameObjects;
 		}
 	}
 

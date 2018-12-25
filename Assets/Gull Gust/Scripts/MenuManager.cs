@@ -14,39 +14,36 @@ namespace GullGust
 	public class MenuManager : MonoBehaviour
 	{
 		private GameObject currentMenu;
-		private Stack<GameObject> history; // for backtracking		
+		private Stack<GameObject> history = new Stack<GameObject>();
+
 		private const string DEFAULT_START_BUTTON = "Jump";
-		private const string DEFAULT_TARGET_TAG = "Menu";
+		private const string DEFAULT_MENU_TAG = "Menu";
 		private const string DEFAULT_RETURN_BUTTON = "Cancel";
 
 		[Header("Buttons")]
-		public GameObject GUIReturnButton; // the button to use for return to previous menues
+		//public GameObject GUIReturnButton; // the button to use for return to previous menues
 		public string inputReturnButton = DEFAULT_RETURN_BUTTON;
 		public string inputStartButton = DEFAULT_START_BUTTON;
 	
 		[Header("Startup")]
-		public string targetMenuTag = DEFAULT_TARGET_TAG;
+		public string menuTag = DEFAULT_MENU_TAG;
 		public GameObject startMenu;
 		public GameObject mainMenu;
 
-		[Header("Debug")]
-		public bool showPanels = true;
-		private string panelTag = "Panel";
+		private static GameObject[] menues;
 		
 
 		// Use this for initialization
 		void Start()
 		{
-			GameObject[] menues = GameObject.FindGameObjectsWithTag(targetMenuTag);
-			GameObject[] panels = GameObject.FindGameObjectsWithTag(panelTag);
-			//Image[] images = GetComponentsInChildren<Image>();
-			//DisableAll(menues);
-			//DisableAll(panels);
-			//Enable(startMenu);
+			// when we return to the main menu scene, we want to reuse the same objects
+			if (menues == null) // run once
+			{
+				menues = gameObject.GetGameObjectsWithTagFromComponentsInChildren<Transform>(menuTag, true);
+			}
+			
 
 			menues.DeactivateAll();
-			panels.SetAllComponentsWithTagEnabled<Image>(panelTag, false);
-			//images.DisableAllWithTag("Panel");
 
 			startMenu.Activate();
 			currentMenu = startMenu;
@@ -58,42 +55,23 @@ namespace GullGust
 			DetermineInputBacktracking(); // let the script decide how you are allowed to move backward through menues
 		}
 
-		private void OnValidate()
-		{
-			//Image[] images = GetComponentsInChildren<Image>();
-			GameObject[] panels = GameObject.FindGameObjectsWithTag(panelTag);
-
-			if (showPanels)
-			{
-				//EnableAll(panels);
-				//images.SetEnabledAllWithTag("Panel", true);
-				//images.EnableAllWithTag("Panel");
-				panels.SetAllComponentsWithTagEnabled<Image>(panelTag, true);
-			}
-			else
-			{
-				//DisableAll(panels);
-				//images.SetEnabledAllWithTag("Panel", false);
-				//images.DisableAllWithTag("Panel");
-				panels.SetAllComponentsWithTagEnabled<Image>(panelTag, false);
-			}
-		}
-
 		private void DetermineInputNavigation()
 		{
 			if (OnStartMenu() && PressedAnyButton())
 			{
 				NavigateTo(mainMenu);
 			}
+
+		
 		}
 
 		private void DetermineInputBacktracking()
 		{
-			if (!OnStartMenu() && !OnMainMenu() && PressedReturnButton())
+			if (PressedReturnButton() && !OnStartMenu() && !OnMainMenu())
 			{
 				Backtrack();
 			}
-		}		
+		}
 
 		private bool OnStartMenu() { return (currentMenu == startMenu); }
 		private bool OnMainMenu() { return (currentMenu == mainMenu); }
@@ -105,45 +83,38 @@ namespace GullGust
 		{
 			GameObject previousMenu;
 			currentMenu.Deactivate();
-			//Disable(currentMenu);
 
 			Debug.Assert(history.Count > 1);
 			history.Pop();
 			previousMenu = history.Peek();
-
-			//Enable(previousMenu);
-			//previousMenu.Activate();
+			
 			previousMenu.Activate();
 			currentMenu = previousMenu;
 
-			DetermineReturnButtonDisplay();
+			//DetermineReturnButtonDisplay();
 		}
 
-		private void DetermineReturnButtonDisplay()
-		{
-			if (!OnMainMenu() && !OnStartMenu())
-			{
-				//Enable(GUIReturnButton);
-				GUIReturnButton.Activate();
-			}
-			else
-			{
-				//Disable(GUIReturnButton);
-				GUIReturnButton.Deactivate();
-			}
-		}
+		//private void DetermineReturnButtonDisplay()
+		//{
+		//	if (!OnMainMenu() && !OnStartMenu())
+		//	{
+		//		GUIReturnButton.Activate();
+		//	}
+		//	else
+		//	{
+		//		GUIReturnButton.Deactivate();
+		//	}
+		//}
 
 		public void NavigateTo(GameObject nextMenu)
 		{
-			//Disable(currentMenu);
 			currentMenu.Deactivate();
 			history.Push(nextMenu);
-
-			//Enable(nextMenu);
+			
 			nextMenu.Activate();
 			currentMenu = nextMenu;
 
-			DetermineReturnButtonDisplay();
+			//DetermineReturnButtonDisplay();
 		}
 	}
 
